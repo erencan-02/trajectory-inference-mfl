@@ -27,6 +27,23 @@ The notebook [`trajectory_inference_mfl.ipynb`](trajectory_inference_mfl.ipynb) 
 
 Everything is implemented in plain **NumPy/SciPy**, with no OT or deep-learning libraries: a batched log-domain Sinkhorn solver, data-fitting forces, the MFL particle updates, a k-NN entropy estimator and the energy distance.
 
+## Handbook: from optimal transport to trajectory inference
+
+[`handbook/handbook.pdf`](handbook/handbook.pdf) is an 18-page companion text, written in Typst, for readers who know optimal transport and Wasserstein gradient flows but are new to trajectory inference. It covers:
+- entropic OT, Sinkhorn and Schrödinger potentials;
+- the static and dynamic Schrödinger problems (large deviations, stochastic control, the entropic Benamou–Brenier formula);
+- the min-entropy estimator as a multi-marginal Schrödinger problem;
+- mean-field Langevin dynamics as a Wasserstein gradient flow whose convergence rests on flat convexity and a log-Sobolev inequality;
+- unbalanced transport (Wasserstein–Fisher–Rao / Hellinger–Kantorovich) for cell division and death;
+- a list of open problems.
+
+To rebuild it (requires [Typst](https://typst.app) ≥ 0.14):
+
+```bash
+python handbook/figures/make_figures.py
+typst compile handbook/main.typ handbook/handbook.pdf
+```
+
 ## Quick start
 
 ```bash
